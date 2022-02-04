@@ -10,7 +10,16 @@
         alt="Loader"
       />
     </div>
-    <category v-for="category in categoryList" :key="category.id"> </category>
+    <category
+      v-for="category in categoryList"
+      :key="category.uuid4"
+      :id="category.uuid4"
+      :name="category.name"
+      :category_type="category.category_type"
+      :price="category.suggested_budget"
+      :image="category.image"
+    >
+    </category>
   </main>
 </template>
 
@@ -26,6 +35,7 @@ export default {
 <style>
 .categoryList {
   display: grid;
+  gap: 0.5rem;
   padding: 2rem;
   background-color: antiquewhite;
 }
