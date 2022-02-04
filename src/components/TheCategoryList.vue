@@ -1,7 +1,4 @@
 <template>
-  <!-- <div class="categoryList_notFound" v-if="categoryList">
-      <h2>No se encuentran categorias</h2>
-    </div> -->
   <div>
     <div v-if="isLoading" class="loader-container">
       <img
@@ -9,6 +6,9 @@
         src="https://cssbud.com/wp-content/uploads/2021/08/tweaking-robot.gif"
         alt="Loader"
       />
+    </div>
+    <div class="categoryList_notFound" v-if="isCategoryListEmpty && !isLoading">
+      <h2>No se encuentran categorias :(</h2>
     </div>
     <main class="categoryList">
       <category
@@ -31,6 +31,14 @@ import Category from "./Category.vue";
 export default {
   components: { Category },
   props: ["categoryList", "isLoading"],
+  computed: {
+    isCategoryListEmpty() {
+      if (this.categoryList.length === 0) {
+        return true;
+      }
+      return false;
+    },
+  },
 };
 </script>
 

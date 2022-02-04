@@ -39,7 +39,6 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           this.isLoading = false;
-          console.log(data.data);
           this.categoryList = data.data;
           this.resetList = data.data;
         })
