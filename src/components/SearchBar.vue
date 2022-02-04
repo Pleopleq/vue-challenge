@@ -1,17 +1,29 @@
 <template>
-  <form class="searchBar">
+  <div class="searchBar" @keyup.prevent="onSearchCategory">
     <label for="categoryName">Busca una categoria</label>
     <input
       class="searchBar-input"
       name="categoryName"
       type="text"
+      v-model="categoryName"
       placeholder="Buscar..."
     />
-  </form>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      categoryName: "",
+    };
+  },
+  methods: {
+    onSearchCategory() {
+      this.$emit("category-search", this.categoryName);
+    },
+  },
+};
 </script>
 
 <style>

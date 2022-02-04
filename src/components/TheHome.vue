@@ -1,6 +1,6 @@
 <template>
   <div>
-    <search-bar></search-bar>
+    <search-bar @category-search="onCategorySearch"></search-bar>
     <the-category-list
       :categoryList="categoryList"
       :isLoading="isLoading"
@@ -19,6 +19,8 @@ export default {
   data() {
     return {
       categoryList: [],
+      resetList: [],
+      categorySearch: "",
       isLoading: false,
     };
   },
@@ -39,8 +41,18 @@ export default {
           this.isLoading = false;
           console.log(data.data);
           this.categoryList = data.data;
+          this.resetList = data.data;
         })
         .catch((error) => console.error(error));
+    },
+    onCategorySearch(categoryName) {
+      this.resetCategories();
+      this.categoryList = this.categoryList.filter((item) => {
+        return item.name.esp.toLowerCase().includes(categoryName);
+      });
+    },
+    resetCategories() {
+      this.categoryList = this.resetList;
     },
   },
   created: function () {
