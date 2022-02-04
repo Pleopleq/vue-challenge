@@ -29,9 +29,14 @@ export default {
 <style>
 .searchBar {
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
   padding: 2rem;
+}
+
+.searchBar > label {
+  margin-bottom: 12px;
 }
 
 .searchBar-input {

@@ -39,6 +39,7 @@ export default {
 .category-container {
   display: flex;
   border: 1px solid #5931c9;
+  border-radius: 12px;
 }
 
 .category-image {
