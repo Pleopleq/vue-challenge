@@ -1,7 +1,7 @@
 <template>
   <div class="category-container">
     <div class="category-image">
-      <img :src="image" alt="" />
+      <img :src="checkImage" alt="" />
     </div>
     <div class="category-body">
       <h3>{{ name.esp }}</h3>
@@ -31,6 +31,13 @@ export default {
         currency: "USD",
       });
     },
+    checkImage() {
+      if(this.image.split('/').length > 6) {
+        const realURL = this.image.split('/').splice(4, this.image.length).join('/')
+        return realURL
+      }
+      return this.image
+    }
   },
 };
 </script>
