@@ -57,8 +57,8 @@ export default {
 .categoryList {
   display: grid;
   gap: 0.5rem;
-  grid-auto-rows: 9rem;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-auto-rows: 11rem;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
   padding: 1.2rem;
 }
 .categoryList_notFound {

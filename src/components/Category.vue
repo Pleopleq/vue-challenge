@@ -5,7 +5,7 @@
     </div>
     <div class="category-body">
       <h3>{{ name.esp }}</h3>
-      <p>Precio: {{ priceToUSD }}</p>
+      <p>Precio: {{ priceToUSD }} USD</p>
       <p>Tipo: {{ categoryType }}</p>
     </div>
   </div>
@@ -40,6 +40,7 @@ export default {
   display: flex;
   border: 1px solid #5931c9;
   border-radius: 12px;
+  box-shadow: 0 0 3px #5931c9;
 }
 
 .category-image {
@@ -55,5 +56,6 @@ export default {
 
 .category-body {
   padding-left: 1rem;
+  padding-right: 1rem;
 }
 </style>
