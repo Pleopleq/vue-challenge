@@ -30,7 +30,6 @@ export default {
       fetch("https://apitesting.plerk.io/v2/category", {
         method: "GET",
         headers: {
-          'Access-Control-Allow-Origin': 'fervent-saha-9bf285.netlify.app',
           "Content-Type": "application/json",
           Authorization:
             "Bearer " +
