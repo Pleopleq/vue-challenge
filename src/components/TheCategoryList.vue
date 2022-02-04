@@ -1,8 +1,8 @@
 <template>
-  <main class="categoryList">
-    <!-- <div class="categoryList_notFound" v-if="categoryList">
+  <!-- <div class="categoryList_notFound" v-if="categoryList">
       <h2>No se encuentran categorias</h2>
     </div> -->
+  <div>
     <div v-if="isLoading" class="loader-container">
       <img
         class="loader"
@@ -10,17 +10,19 @@
         alt="Loader"
       />
     </div>
-    <category
-      v-for="category in categoryList"
-      :key="category.uuid4"
-      :id="category.uuid4"
-      :name="category.name"
-      :category_type="category.category_type"
-      :price="category.suggested_budget"
-      :image="category.image"
-    >
-    </category>
-  </main>
+    <main class="categoryList">
+      <category
+        v-for="category in categoryList"
+        :key="category.uuid4"
+        :id="category.uuid4"
+        :name="category.name"
+        :category_type="category.category_type"
+        :price="category.suggested_budget"
+        :image="category.image"
+      >
+      </category>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -36,8 +38,9 @@ export default {
 .categoryList {
   display: grid;
   gap: 0.5rem;
+  grid-auto-rows: 9rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   padding: 2rem;
-  background-color: antiquewhite;
 }
 .categoryList_notFound {
   text-align: center;
