@@ -40,7 +40,7 @@ export default {
   gap: 0.5rem;
   grid-auto-rows: 9rem;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  padding: 2rem;
+  padding: 1.2rem;
 }
 .categoryList_notFound {
   text-align: center;

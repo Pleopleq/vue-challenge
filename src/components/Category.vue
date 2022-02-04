@@ -4,7 +4,7 @@
       <img :src="image" alt="" />
     </div>
     <div class="category-body">
-      <p>{{ name.esp }}</p>
+      <h3>{{ name.esp }}</h3>
       <p>Precio: {{ priceToUSD }}</p>
       <p>Tipo: {{ categoryType }}</p>
     </div>
