@@ -7,8 +7,10 @@
         alt="Loader"
       />
     </div>
-    <div class="categoryList_notFound" v-if="isCategoryListEmpty && !isLoading">
-      <h2>No se encuentran categorias :(</h2>
+    <div class="categoryList_notFound" 
+      v-if="(isCategoryListEmpty && !isLoading) || (isError && !isLoading)"
+    >
+      <h2>{{feedbackMsg}}</h2>
     </div>
     <main class="categoryList">
       <category
@@ -30,7 +32,7 @@ import Category from "./Category.vue";
 
 export default {
   components: { Category },
-  props: ["categoryList", "isLoading"],
+  props: ["categoryList", "isLoading", "isError"],
   computed: {
     isCategoryListEmpty() {
       if (this.categoryList.length === 0) {
@@ -38,6 +40,15 @@ export default {
       }
       return false;
     },
+    feedbackMsg() {
+      if(this.isCategoryListEmpty && !this.isLoading && !this.isError) { 
+        return "No se encuentran categorias :("
+      }
+      if(this.isError && !this.isLoading){
+        return 'Algo salio mal. Intenta mas tarde!'
+      }
+      return null
+    }
   },
 };
 </script>
