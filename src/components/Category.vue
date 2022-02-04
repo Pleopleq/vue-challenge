@@ -38,7 +38,7 @@ export default {
 <style>
 .category-container {
   display: flex;
-  border: 1px solid gray;
+  border: 1px solid #5931c9;
 }
 
 .category-image {
