@@ -4,6 +4,7 @@
     <the-category-list
       :categoryList="categoryList"
       :isLoading="isLoading"
+      :isError="isError"
     ></the-category-list>
   </div>
 </template>
@@ -22,11 +23,13 @@ export default {
       resetList: [],
       categorySearch: "",
       isLoading: false,
+      isError: false
     };
   },
   methods: {
     getCategories() {
       this.isLoading = true;
+      this.isError = false
       fetch("https://apitesting.plerk.io/v2/category", {
         method: "GET",
         headers: {
@@ -42,7 +45,11 @@ export default {
           this.categoryList = data.data;
           this.resetList = data.data;
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          this.isLoading = false;
+          this.isError = true;
+          console.error(error)
+        });
     },
     onCategorySearch(categoryName) {
       this.resetCategories();
@@ -54,7 +61,7 @@ export default {
       this.categoryList = this.resetList;
     },
   },
-  created: function () {
+  created() {
     this.getCategories();
   },
 };

@@ -43,5 +43,10 @@ export default {
   border: 1px solid #5931c9;
   border-radius: 1rem;
   padding: 0.5rem;
+  outline: none;
+}
+.searchBar-input[type=text]:focus {
+  box-shadow: 0 0 5px #5931c9;
+  border: 1px solid #5931c9;
 }
 </style>

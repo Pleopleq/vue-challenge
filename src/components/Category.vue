@@ -1,14 +1,14 @@
 <template>
-  <div class="category-container">
+  <base-card>
     <div class="category-image">
-      <img :src="image" alt="" />
+      <img :src="checkImage" alt="" />
     </div>
     <div class="category-body">
       <h3>{{ name.esp }}</h3>
-      <p>Precio: {{ priceToUSD }}</p>
+      <p>Precio: {{ priceToUSD }} USD</p>
       <p>Tipo: {{ categoryType }}</p>
     </div>
-  </div>
+  </base-card>
 </template>
 
 <script>
@@ -31,17 +31,18 @@ export default {
         currency: "USD",
       });
     },
+    checkImage() {
+      if(this.image.split('/').length > 6) {
+        const realURL = this.image.split('/').splice(4, this.image.length).join('/')
+        return realURL
+      }
+      return this.image
+    }
   },
 };
 </script>
 
 <style>
-.category-container {
-  display: flex;
-  border: 1px solid #5931c9;
-  border-radius: 12px;
-}
-
 .category-image {
   display: flex;
   justify-content: center;
@@ -55,5 +56,6 @@ export default {
 
 .category-body {
   padding-left: 1rem;
+  padding-right: 1rem;
 }
 </style>
