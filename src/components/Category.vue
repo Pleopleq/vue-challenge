@@ -32,12 +32,18 @@ export default {
       });
     },
     checkImage() {
-      if(this.image.split('/').length > 6) {
-        const realURL = this.image.split('/').splice(4, this.image.length).join('/')
-        return realURL
+      if (!this.image) {
+        return;
       }
-      return this.image
-    }
+      if (this.image.split("/").length > 6) {
+        const realURL = this.image
+          .split("/")
+          .splice(4, this.image.length)
+          .join("/");
+        return realURL;
+      }
+      return this.image;
+    },
   },
 };
 </script>
