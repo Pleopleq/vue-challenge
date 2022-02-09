@@ -23,20 +23,18 @@ export default {
       resetList: [],
       categorySearch: "",
       isLoading: false,
-      isError: false
+      isError: false,
     };
   },
   methods: {
     getCategories() {
       this.isLoading = true;
-      this.isError = false
+      this.isError = false;
       fetch("https://apitesting.plerk.io/v2/category", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer " +
-            process.env.API_KEY,
+          Authorization: process.env.API_KEY,
         },
       })
         .then((response) => response.json())
@@ -48,7 +46,7 @@ export default {
         .catch((error) => {
           this.isLoading = false;
           this.isError = true;
-          console.error(error)
+          console.error(error);
         });
     },
     onCategorySearch(categoryName) {
